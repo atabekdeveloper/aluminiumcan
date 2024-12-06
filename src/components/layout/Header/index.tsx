@@ -51,14 +51,13 @@ export const Header: React.FC = () => {
       setIsDropdownOpen(false);
     }
   };
-
   useEffect(() => {
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
   return (
-    <header className="fixed top-0 z-50 w-full bg-white/10 backdrop-blur-lg shadow-lg">
+    <header className={`fixed top-0 z-50 w-full bg-white/5 backdrop-blur-lg shadow-lg`}>
       <div className="container flex items-center justify-between py-7">
         {/* Logo */}
         <a href="#" onClick={() => handleScrollTo('#')}>

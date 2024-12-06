@@ -7,7 +7,7 @@ import product3 from 'src/assets/images/product/product3.svg';
 
 const Home: React.FC = () => {
   return (
-    <section id="#" className="h-screen scroll-snap-align">
+    <section id="#" className="h-screen snap-start">
       <div className="grid grid-cols-1 md:grid-cols-[40%,30%,30%] h-screen">
         {/* Первая колонка с фоновым изображением */}
         <div

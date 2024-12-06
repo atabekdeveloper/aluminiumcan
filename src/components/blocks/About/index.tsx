@@ -5,7 +5,7 @@ import product1 from 'src/assets/images/product/product1.svg';
 
 const About: React.FC = () => {
   return (
-    <section id="about" className="container h-screen flex scroll-snap-align">
+    <section id="about" className="container h-screen flex snap-start">
       <div className="flex gap-20 items-center">
         <div className="w-1/2 relative">
           <img className="w-full" src={about} alt="About" />

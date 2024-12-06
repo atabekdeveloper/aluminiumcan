@@ -7,6 +7,8 @@ import product4 from 'src/assets/images/product/product4.svg';
 import product5 from 'src/assets/images/product/product5.svg';
 import product6 from 'src/assets/images/product/product6.svg';
 
+import fon2 from 'src/assets/images/fon/fon2.svg';
+
 const products = [
   {
     img: product1,
@@ -42,7 +44,7 @@ const products = [
 
 const Products: React.FC = () => {
   return (
-    <section id="products" className="scroll-snap-align relative">
+    <section id="products" className="snap-start relative">
       <div className="container">
         <h1 className="title">Biz ishlab chiqargan maxsulotlar</h1>
         <ul className="grid grid-cols-3 gap-[170px]">
@@ -60,6 +62,11 @@ const Products: React.FC = () => {
           ))}
         </ul>
       </div>
+      <img
+        className="absolute w-full max-w-[1500px] -top-[300px] right-0 -z-10 opacity-40"
+        src={fon2}
+        alt="Fon 2"
+      />
     </section>
   );
 };

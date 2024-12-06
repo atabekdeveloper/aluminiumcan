@@ -29,11 +29,4 @@ body {
   .button {
     @apply text-base px-16 py-3 text-white bg-primary rounded-[100px] hover:bg-primary/70 transform active:translate-y-[2px];
   }
-  .scroll-snap {
-    scroll-snap-type: y mandatory;
-    overflow-y: scroll;
-  }
-  .scroll-snap-align {
-    scroll-snap-align: start;
-  }
 }

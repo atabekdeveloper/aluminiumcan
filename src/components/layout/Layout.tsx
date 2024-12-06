@@ -1,5 +1,5 @@
 import React from 'react';
-import { About, Home, Products } from '../blocks';
+import { About, About2, Home, Products } from '../blocks';
 import { Header } from './Header';
 
 export const Layout: React.FC = () => {
@@ -10,10 +10,11 @@ export const Layout: React.FC = () => {
 
       {/* Main content */}
       <main className="flex-auto relative">
-        <div className="h-screen scroll-snap">
+        <div className="h-screen snap-mandatory snap-y overflow-y-scroll">
           <Home />
           <About />
           <Products />
+          <About2 />
         </div>
       </main>
 
