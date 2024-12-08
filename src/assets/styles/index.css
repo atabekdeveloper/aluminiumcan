@@ -24,7 +24,7 @@ body {
     @apply text-midnight text-4xl lg:text-[64px] max-w-full lg:max-w-[750px] leading-[50px] lg:leading-[80px] mb-5;
   }
   .container {
-    @apply w-[1200px] max-w-full mx-auto px-5 py-20;
+    @apply w-[1280px] max-w-full mx-auto px-5 py-20;
   }
   .button {
     @apply text-base px-12 md:px-16 py-3 text-white bg-primary rounded-[100px] hover:bg-primary/70 transform active:translate-y-[2px];

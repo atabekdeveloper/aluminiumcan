@@ -9,6 +9,7 @@ import {
   Partners,
   Products,
 } from '../blocks';
+import { Footer } from './Footer';
 import { Header } from './Header';
 
 export const Layout: React.FC = () => {
@@ -50,15 +51,13 @@ export const Layout: React.FC = () => {
             <AdditionalProducts />
             <Partners />
             <Clients />
+            <Footer />
           </div>
         </div>
-        <div className="fixed p-2 text-white bg-gray-800 rounded bottom-4 right-4">
+        {/* <div className="fixed p-2 text-white bg-gray-800 rounded bottom-4 right-4">
           Scroll: {scrollPosition.toFixed(0)}%
-        </div>
+        </div> */}
       </main>
-
-      {/* Footer */}
-      {/* <Footer /> */}
     </div>
   );
 };
