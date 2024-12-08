@@ -18,8 +18,8 @@ const AdditionalProducts: React.FC = () => {
       <div className="container">
         <h2 className="title">Bizning qo’shimcha maxsulotlarimiz</h2>
         <ul className="grid grid-cols-1 gap-10 px-10 md:gap-20 md:grid-cols-2 lg:grid-cols-3 lg:px-0">
-          {aditionalProducts.map((el) => (
-            <li className="bg-primary rounded-[188px] overflow-hidden pt-40 pb-16 relative">
+          {aditionalProducts.map((el, i) => (
+            <li key={i} className="bg-primary rounded-[188px] overflow-hidden pt-40 pb-16 relative">
               <img className="w-full" src={el.img} alt={el.title} />
               <div className="absolute top-0 bottom-0 left-0 right-0 flex items-center justify-center w-full h-full transition-opacity opacity-0 hover:opacity-100 bg-primary/60">
                 <div className="text-center">
