@@ -1803,7 +1803,7 @@ scheduler@^0.23.2:
 
 scroll-carousel-react@^1.0.0:
   version "1.0.0"
-  resolved "https://registry.npmjs.org/scroll-carousel-react/-/scroll-carousel-react-1.0.0.tgz"
+  resolved "https://registry.yarnpkg.com/scroll-carousel-react/-/scroll-carousel-react-1.0.0.tgz#545fefce3482b1d749e0e22f8953ef4a1e2212d5"
   integrity sha512-qx3YibxHxeHgtGn/RosDIDg9US1XZVvdPUnDA6DqXhyBRRxd0Dcmz8MbKBJOGcHS9TuHb0OuRGz4VvN6MUDxog==
   dependencies:
     react "^18.2.0"

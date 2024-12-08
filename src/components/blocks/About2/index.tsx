@@ -7,7 +7,7 @@ import about2 from 'src/assets/images/about/about2.png';
 const About2: React.FC = () => {
   const { isMobile } = useResponsive(1024);
   return (
-    <section id="about2" className="container flex h-full lg:h-screen lg:snap-start snap-none">
+    <section id="about2" className="container flex">
       <div className="flex flex-col items-center gap-20 lg:flex-row">
         <div className="relative hidden lg:w-2/5 lg:block">
           <img className="w-full" src={about2} alt="About 2" />

@@ -10,7 +10,7 @@ const About: React.FC = () => {
         <div className="relative w-full lg:w-1/2">
           <img className="w-full" src={about} alt="About" />
           <img
-            className="max-w-[90px] w-full absolute z-50 bottom-0 right-[-20px] rotate-[20deg] lg:block hidden"
+            className="max-w-[90px] w-full absolute z-30 bottom-0 right-[-20px] rotate-[20deg] lg:block hidden"
             src={product}
             alt="Product 1"
           />

@@ -2,11 +2,12 @@ import React, { useEffect, useRef, useState } from 'react';
 import { GrLanguage } from 'react-icons/gr';
 import { VscMenu } from 'react-icons/vsc';
 import logo from 'src/assets/images/logo1.svg';
+import logo3 from 'src/assets/images/logo3.svg';
 
 // Language options
 const options = ['UZ', 'RU'];
 
-export const Header: React.FC = () => {
+export const Header: React.FC<{ scrollPosition: number }> = ({ scrollPosition }) => {
   const langStorage = localStorage.getItem('lang');
   const dropdownRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -51,17 +52,26 @@ export const Header: React.FC = () => {
       setIsDropdownOpen(false);
     }
   };
+
   useEffect(() => {
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
   return (
-    <header className={`fixed top-0 z-20 w-full bg-white/5 backdrop-blur-lg shadow-lg`}>
+    <header
+      className={`fixed top-0 z-50 w-full backdrop-blur-lg shadow-lg transition-all ${
+        scrollPosition > 5 ? 'bg-midnight' : 'bg-white/5'
+      }`}
+    >
       <div className="container flex items-center justify-between py-7">
         {/* Logo */}
         <a href="#" onClick={() => handleScrollTo('#')}>
-          <img className="transition-transform duration-500" src={logo} alt="Logo" />
+          <img
+            className="transition-transform duration-500"
+            src={scrollPosition > 5 ? logo3 : logo}
+            alt="Logo"
+          />
         </a>
 
         {/* Language and Menu Options */}
@@ -76,7 +86,9 @@ export const Header: React.FC = () => {
                   e.preventDefault();
                   handleScrollTo(item.link.substring(1));
                 }}
-                className="px-3 py-2 text-sm font-medium text-[#333] transition-colors rounded hover:underline"
+                className={`px-3 py-2 text-sm font-medium transition-colors rounded hover:underline ${
+                  scrollPosition > 5 ? 'text-white' : 'text-[#333]'
+                }`}
               >
                 {item.title}
               </a>
@@ -84,7 +96,9 @@ export const Header: React.FC = () => {
           </nav>
           <button
             ref={buttonRef}
-            className="lg:flex items-center gap-2 text-[#333] hidden"
+            className={`lg:flex items-center gap-2 ${
+              scrollPosition > 5 ? 'text-white' : 'text-[#333]'
+            } hidden`}
             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
           >
             <GrLanguage size={20} />
@@ -109,7 +123,10 @@ export const Header: React.FC = () => {
           )}
 
           {/* Mobile Menu Button */}
-          <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-[#333] lg:hidden z-20">
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className={`${scrollPosition > 5 ? 'text-white' : 'text-[#333]'} lg:hidden z-20`}
+          >
             <VscMenu size={24} />
           </button>
         </div>
