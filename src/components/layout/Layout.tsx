@@ -1,5 +1,5 @@
 import React from 'react';
-import { About, About2, Home, Products } from '../blocks';
+import { About, About2, Connection, Home, Products } from '../blocks';
 import { Header } from './Header';
 
 export const Layout: React.FC = () => {
@@ -15,6 +15,7 @@ export const Layout: React.FC = () => {
           <About />
           <Products />
           <About2 />
+          <Connection />
         </div>
       </main>
 

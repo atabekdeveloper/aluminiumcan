@@ -1,23 +1,23 @@
 import React from 'react';
 
 import about from 'src/assets/images/about/about1.png';
-import product1 from 'src/assets/images/product/product1.svg';
+import product from 'src/assets/images/product/product.svg';
 
 const About: React.FC = () => {
   return (
-    <section id="about" className="container h-screen flex snap-start">
-      <div className="flex gap-20 items-center">
-        <div className="w-1/2 relative">
+    <section id="about" className="container flex lg:h-screen lg:snap-start snap-none ">
+      <div className="flex flex-col items-center gap-10 lg:gap-20 lg:flex-row">
+        <div className="relative w-full lg:w-1/2">
           <img className="w-full" src={about} alt="About" />
           <img
-            className="max-w-[90px] w-full absolute z-50 bottom-0 right-0"
-            src={product1}
+            className="max-w-[90px] w-full absolute z-50 bottom-0 right-[-20px] rotate-[20deg] lg:block hidden"
+            src={product}
             alt="Product 1"
           />
         </div>
-        <div className="w-1/2">
-          <h1 className="title mb-4">Biz haqimizda</h1>
-          <p className="text-midnight mb-4 flex flex-col gap-4">
+        <div className="w-full text-center lg:w-1/2 lg:text-left">
+          <h1 className="mb-4 title">Biz haqimizda</h1>
+          <p className="flex flex-col gap-4 mb-4 text-midnight">
             <span>
               Biz ichimliklar va boshqa sohalar uchun ekologik toza va sifatli qadoqlash
               yechimlarini taqdim etishga intiluvchi alyuminiy butilkalar ishlab chiqaruvchi

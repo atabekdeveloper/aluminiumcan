@@ -44,26 +44,26 @@ const products = [
 
 const Products: React.FC = () => {
   return (
-    <section id="products" className="snap-start relative">
+    <section id="products" className="relative lg:snap-start snap-none">
       <div className="container">
         <h1 className="title">Biz ishlab chiqargan maxsulotlar</h1>
-        <ul className="grid grid-cols-3 gap-[170px]">
+        <ul className="grid grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-[170px]">
           {products.map((product, i) => (
-            <li key={i} className="text-midnight">
+            <li key={i} className="text-center text-midnight lg:text-left">
               <img
-                className="w-[180px] h-[450px] object-contain"
+                className="w-[180px] h-[180px] md:h-[240px] lg:h-[450px] object-contain mb-5 lg:mb-0 mx-auto"
                 src={product.img}
                 alt={product.title}
               />
               <h3 className="mb-5 text-xl font-medium">{product.title}</h3>
-              <p className="mb-5">{product.desc}</p>
+              <p className="mb-5 text-sm md:text-base">{product.desc}</p>
               <button className="button">Tanishish</button>
             </li>
           ))}
         </ul>
       </div>
       <img
-        className="absolute w-full max-w-[1500px] -top-[300px] right-0 -z-10 opacity-40"
+        className="absolute w-full max-w-[1500px] top-0 lg:-top-[300px] right-0 -z-10 opacity-40"
         src={fon2}
         alt="Fon 2"
       />

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { GrLanguage } from 'react-icons/gr';
-import { TbMenuDeep, TbX } from 'react-icons/tb';
+import { VscMenu } from 'react-icons/vsc';
 import logo from 'src/assets/images/logo1.svg';
 
 // Language options
@@ -57,7 +57,7 @@ export const Header: React.FC = () => {
   }, []);
 
   return (
-    <header className={`fixed top-0 z-50 w-full bg-white/5 backdrop-blur-lg shadow-lg`}>
+    <header className={`fixed top-0 z-20 w-full bg-white/5 backdrop-blur-lg shadow-lg`}>
       <div className="container flex items-center justify-between py-7">
         {/* Logo */}
         <a href="#" onClick={() => handleScrollTo('#')}>
@@ -84,7 +84,7 @@ export const Header: React.FC = () => {
           </nav>
           <button
             ref={buttonRef}
-            className="flex items-center gap-2 text-[#333]"
+            className="lg:flex items-center gap-2 text-[#333] hidden"
             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
           >
             <GrLanguage size={20} />
@@ -92,7 +92,7 @@ export const Header: React.FC = () => {
           {isDropdownOpen && (
             <div
               ref={dropdownRef}
-              className="absolute right-0 w-20 py-2 bg-white rounded shadow top-10"
+              className="absolute right-0 hidden w-20 py-2 bg-white rounded shadow top-10 lg:block"
             >
               {options.map((option) => (
                 <div
@@ -110,24 +110,56 @@ export const Header: React.FC = () => {
 
           {/* Mobile Menu Button */}
           <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-[#333] lg:hidden z-20">
-            {isMenuOpen ? <TbX className="text-white" size={24} /> : <TbMenuDeep size={24} />}
+            <VscMenu size={24} />
           </button>
         </div>
       </div>
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="fixed top-0 bottom-0 w-full h-screen flex flex-col items-center gap-4 justify-center bg-black bg-opacity-90">
+        <div className="fixed right-0 w-[200px] py-6 bg-white rounded shadow top-20 flex flex-col text-right">
           {navItems.map((item, i) => (
             <a
               key={i}
               href={item.link}
-              className="text-xl text-white hover:text-gray-400"
-              onClick={() => setIsMenuOpen(false)}
+              className="px-5 py-3 cursor-pointer hover:bg-gray-200"
+              onClick={(e) => {
+                e.preventDefault();
+                handleScrollTo(item.link.substring(1));
+                setIsMenuOpen(false);
+              }}
             >
               {item.title}
             </a>
           ))}
+          {/* Language and Menu Options */}
+          <div className="relative flex justify-end gap-6 px-5 pt-2 lg:gap-10">
+            <button
+              ref={buttonRef}
+              className="flex items-center gap-2 text-[#333]"
+              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+            >
+              <GrLanguage size={20} />
+            </button>
+            {isDropdownOpen && (
+              <div
+                ref={dropdownRef}
+                className="absolute right-0 w-20 py-2 bg-white rounded shadow top-10"
+              >
+                {options.map((option) => (
+                  <div
+                    key={option}
+                    className={`px-4 py-2 cursor-pointer hover:bg-gray-200 ${
+                      lang === option ? 'font-bold' : ''
+                    }`}
+                    onClick={() => handleChangeLanguage(option)}
+                  >
+                    {option}
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
         </div>
       )}
     </header>
