@@ -7,8 +7,9 @@ import logo3 from 'src/assets/images/logo3.svg';
 // Language options
 const options = ['UZ', 'RU'];
 
-export const Header: React.FC<{ scrollPosition: number }> = ({ scrollPosition }) => {
+export const Header: React.FC = () => {
   const langStorage = localStorage.getItem('lang');
+  const [scrolled, setScrolled] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
 
@@ -53,15 +54,29 @@ export const Header: React.FC<{ scrollPosition: number }> = ({ scrollPosition })
     }
   };
 
+  const handleScroll = () => {
+    if (window.scrollY > 150) {
+      setScrolled(true);
+    } else {
+      setScrolled(false);
+    }
+  };
+
   useEffect(() => {
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   return (
     <header
       className={`fixed top-0 z-50 w-full backdrop-blur-lg shadow-lg transition-all ${
-        scrollPosition > 5 ? 'bg-midnight' : 'bg-white/5'
+        scrolled ? 'bg-midnight' : 'bg-white/5'
       }`}
     >
       <div className="container flex items-center justify-between py-7">
@@ -69,7 +84,7 @@ export const Header: React.FC<{ scrollPosition: number }> = ({ scrollPosition })
         <a href="#" onClick={() => handleScrollTo('#')}>
           <img
             className="transition-transform duration-500"
-            src={scrollPosition > 5 ? logo3 : logo}
+            src={scrolled ? logo3 : logo}
             alt="Logo"
           />
         </a>
@@ -82,12 +97,8 @@ export const Header: React.FC<{ scrollPosition: number }> = ({ scrollPosition })
               <a
                 key={i}
                 href={item.link}
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleScrollTo(item.link.substring(1));
-                }}
                 className={`px-3 py-2 text-sm font-medium transition-colors rounded hover:underline ${
-                  scrollPosition > 5 ? 'text-white' : 'text-[#333]'
+                  scrolled ? 'text-white' : 'text-[#333]'
                 }`}
               >
                 {item.title}
@@ -97,7 +108,7 @@ export const Header: React.FC<{ scrollPosition: number }> = ({ scrollPosition })
           <button
             ref={buttonRef}
             className={`lg:flex items-center gap-2 ${
-              scrollPosition > 5 ? 'text-white' : 'text-[#333]'
+              scrolled ? 'text-white' : 'text-[#333]'
             } hidden`}
             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
           >
@@ -125,7 +136,7 @@ export const Header: React.FC<{ scrollPosition: number }> = ({ scrollPosition })
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className={`${scrollPosition > 5 ? 'text-white' : 'text-[#333]'} lg:hidden z-20`}
+            className={`${scrolled ? 'text-white' : 'text-[#333]'} lg:hidden z-20`}
           >
             <VscMenu size={24} />
           </button>
@@ -140,11 +151,7 @@ export const Header: React.FC<{ scrollPosition: number }> = ({ scrollPosition })
               key={i}
               href={item.link}
               className="px-5 py-3 cursor-pointer hover:bg-gray-200"
-              onClick={(e) => {
-                e.preventDefault();
-                handleScrollTo(item.link.substring(1));
-                setIsMenuOpen(false);
-              }}
+              onClick={() => setIsMenuOpen(false)}
             >
               {item.title}
             </a>

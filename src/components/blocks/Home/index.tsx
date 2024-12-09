@@ -10,7 +10,7 @@ import { useResponsive } from 'src/hooks';
 const Home: React.FC = () => {
   const { isMobile } = useResponsive(1024);
   return (
-    <section id="#" className="lg:h-screen lg:snap-start snap-none">
+    <section id="#" className="lg:h-screen">
       <div className="grid grid-cols-1 lg:grid-cols-[40%,30%,30%] h-full lg:h-screen">
         {/* Первая колонка с фоновым изображением */}
         <div
@@ -19,7 +19,7 @@ const Home: React.FC = () => {
             backgroundImage: `url(${fon1})`, // Указывайте свой URL изображения
           }}
         >
-          <img className="max-w-[220px] w-full" src={product} alt="Product 1" />
+          <img className="max-w-[220px] w-full block" src={product} alt="Product 1" />
         </div>
 
         {/* Вторая колонка с простым фоном */}

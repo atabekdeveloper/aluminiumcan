@@ -34,29 +34,24 @@ export const Layout: React.FC = () => {
     };
   }, []);
 
+  console.log(scrollPosition);
+
   return (
     <div className="flex flex-col min-h-full overflow-hidden">
       {/* Header */}
-      <Header scrollPosition={scrollPosition} />
+      <Header />
 
       {/* Main content */}
-      <main className="relative flex-auto">
-        <div ref={mainRef} className="h-screen overflow-y-scroll snap-mandatory snap-y">
-          <Home />
-          <About />
-          <div className="lg:snap-start snap-none">
-            <Products />
-            <About2 />
-            <Connection />
-            <AdditionalProducts />
-            <Partners />
-            <Clients />
-            <Footer />
-          </div>
-        </div>
-        {/* <div className="fixed p-2 text-white bg-gray-800 rounded bottom-4 right-4">
-          Scroll: {scrollPosition.toFixed(0)}%
-        </div> */}
+      <main ref={mainRef} className="relative flex-auto">
+        <Home />
+        <About />
+        <Products />
+        <About2 />
+        <Connection />
+        <AdditionalProducts />
+        <Partners />
+        <Clients />
+        <Footer />
       </main>
     </div>
   );

@@ -11,29 +11,24 @@ import fon2 from 'src/assets/images/fon/fon2.svg';
 
 const products = [
   {
-    img: product1,
-    title: 'Kategoriyasi',
-    desc: 'Biz ichimliklar va boshqa sohalar uchun ekologik toza va sifatli ',
-  },
-  {
     img: product2,
     title: 'Kategoriyasi',
-    desc: 'Biz ichimliklar va boshqa sohalar uchun ekologik toza va sifatli ',
+    desc: 'Biz ichimliklar va boshqa sohalar uchun ekologik toza va sifatli',
   },
   {
     img: product3,
     title: 'Kategoriyasi',
-    desc: 'Biz ichimliklar va boshqa sohalar uchun ekologik toza va sifatli ',
+    desc: 'Biz ichimliklar va boshqa sohalar uchun ekologik toza va sifatli',
   },
   {
     img: product4,
     title: 'Kategoriyasi',
-    desc: 'Biz ichimliklar va boshqa sohalar uchun ekologik toza va sifatli ',
+    desc: 'Biz ichimliklar va boshqa sohalar uchun ekologik toza va sifatli',
   },
   {
     img: product5,
     title: 'Kategoriyasi',
-    desc: 'Biz ichimliklar va boshqa sohalar uchun ekologik toza va sifatli ',
+    desc: 'Biz ichimliklar va boshqa sohalar uchun ekologik toza va sifatli',
   },
   {
     img: product6,
@@ -48,6 +43,18 @@ const Products: React.FC = () => {
       <div className="container">
         <h1 className="title">Biz ishlab chiqargan maxsulotlar</h1>
         <ul className="grid grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-[170px]">
+          <li className="text-center text-midnight lg:text-left">
+            <img
+              className="w-[200px] h-[180px] md:h-[300px] lg:h-[450px] object-contain mb-5 lg:mb-0 mx-auto"
+              src={product1}
+              alt="Kategoriyasi"
+            />
+            <h3 className="mb-5 text-xl font-medium">Kategoriyasi</h3>
+            <p className="mb-5 text-sm md:text-base">
+              Biz ichimliklar va boshqa sohalar uchun ekologik toza va sifatli
+            </p>
+            <button className="button">Tanishish</button>
+          </li>
           {products.map((product, i) => (
             <li key={i} className="text-center text-midnight lg:text-left">
               <img

@@ -1,17 +1,17 @@
 import React from 'react';
 
 import about from 'src/assets/images/about/about1.png';
-import product from 'src/assets/images/product/product.svg';
+import product1 from 'src/assets/images/product/product.svg';
 
 const About: React.FC = () => {
   return (
-    <section id="about" className="container flex lg:h-screen lg:snap-start snap-none ">
+    <section id="about" className="container flex">
       <div className="flex flex-col items-center gap-10 lg:gap-20 lg:flex-row">
         <div className="relative w-full lg:w-1/2">
           <img className="w-full" src={about} alt="About" />
           <img
             className="max-w-[90px] w-full absolute z-30 bottom-0 right-[-20px] rotate-[20deg] lg:block hidden"
-            src={product}
+            src={product1}
             alt="Product 1"
           />
         </div>
