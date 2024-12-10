@@ -20,7 +20,7 @@ const HomePage: React.FC = () => {
     width: number;
     rotate: string;
     position: string;
-  } | null>(null);
+  }>();
 
   const homeRef = useRef<HTMLDivElement | null>(null);
   const aboutRef = useRef<HTMLDivElement | null>(null);
@@ -79,6 +79,8 @@ const HomePage: React.FC = () => {
     }
   };
 
+  useEffect(() => window.scrollTo(0, 1), []);
+
   useEffect(() => {
     // Установка начального положения
     const initialPosition = calculateClosestElement();
@@ -95,13 +97,13 @@ const HomePage: React.FC = () => {
   }, []);
 
   return (
-    <React.StrictMode>
+    <>
       {/* Красный квадрат */}
       <div
         className="fixed z-20 hidden transition-all duration-700 ease-in-out lg:block"
         style={{
-          top: currentPosition?.top || 435,
-          left: currentPosition?.left || 268,
+          top: currentPosition?.top,
+          left: currentPosition?.left,
           width: currentPosition?.width,
           rotate: currentPosition?.rotate,
         }}
@@ -118,7 +120,7 @@ const HomePage: React.FC = () => {
       <AdditionalProducts />
       <Partners />
       <Clients />
-    </React.StrictMode>
+    </>
   );
 };
 
