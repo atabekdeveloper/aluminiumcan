@@ -81,7 +81,7 @@ const HomePage: React.FC = () => {
 
   useEffect(() => {
     setTimeout(() => {
-      window.scrollTo(0, 1);
+      window.scrollTo({ top: 1, left: 0, behavior: 'smooth' });
     }, 0);
   }, []);
 
