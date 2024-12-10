@@ -1,5 +1,4 @@
 import { useTranslation } from 'react-i18next';
-import product1 from 'src/assets/images/product/product1.svg';
 import product2 from 'src/assets/images/product/product2.svg';
 import product3 from 'src/assets/images/product/product3.svg';
 import product4 from 'src/assets/images/product/product4.svg';
@@ -9,12 +8,6 @@ import product6 from 'src/assets/images/product/product6.svg';
 export const useProducts = () => {
   const { t } = useTranslation();
   const products = [
-    {
-      id: 1,
-      img: product1,
-      title: t('productTitle1'),
-      desc: t('productDesc1'),
-    },
     {
       id: 2,
       img: product2,

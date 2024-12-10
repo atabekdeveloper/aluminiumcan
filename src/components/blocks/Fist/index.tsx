@@ -8,7 +8,7 @@ import product3 from 'src/assets/images/product/product3.svg';
 
 import './index.css';
 
-const Home: React.FC = () => {
+const First: React.FC<{ divRef: React.RefObject<HTMLDivElement> }> = ({ divRef }) => {
   const { t } = useTranslation();
   return (
     <section id="#" className="lg:h-screen">
@@ -20,11 +20,13 @@ const Home: React.FC = () => {
             backgroundImage: `url(${fon1})`, // Указывайте свой URL изображения
           }}
         >
-          <img
-            className="max-w-[220px] w-full block animate-rise-right"
-            src={product}
-            alt="Product 1"
-          />
+          <div ref={divRef}>
+            <img
+              className="max-w-[220px] w-full opacity-100 lg:opacity-0"
+              src={product}
+              alt="Product 1"
+            />
+          </div>
         </div>
 
         {/* Вторая колонка с простым фоном */}
@@ -61,4 +63,4 @@ const Home: React.FC = () => {
   );
 };
 
-export { Home };
+export { First };

@@ -35,8 +35,8 @@ export const Layout: React.FC = () => {
       {/* Main content */}
       <main ref={mainRef} className="relative flex-auto">
         <Outlet />
+        <Footer />
       </main>
-      <Footer />
     </div>
   );
 };
