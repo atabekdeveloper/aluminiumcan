@@ -30,3 +30,56 @@ body {
     @apply text-base px-12 md:px-16 py-3 text-white bg-primary rounded-[100px] hover:bg-primary/70 transform active:translate-y-[2px];
   }
 }
+@keyframes riseUp {
+  0% {
+    transform: translate(-100%) translateY(100%) rotate(20deg);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(0%) translateY(0) rotate(20deg);
+    opacity: 1;
+  }
+}
+
+@keyframes riseDown {
+  0% {
+    transform: translate(100%) translateY(-100%) rotate(20deg);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(0%) translateY(0) rotate(20deg);
+    opacity: 1;
+  }
+}
+@keyframes riseRight {
+  0% {
+    transform: translate(100%) translateY(100%) rotate(20deg);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(0%) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+.animate-rise-up {
+  animation: riseUp 0.7s ease-in-out forwards;
+}
+
+.animate-rise-down {
+  animation: riseDown 0.7s ease-in-out forwards;
+}
+@media (max-width: 1024px) {
+  .animate-rise-right {
+    animation: riseRight 0.7s ease-in-out forwards;
+  }
+}

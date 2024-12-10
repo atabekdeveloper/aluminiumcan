@@ -26,10 +26,8 @@ const Products: React.FC<{ divRef: React.RefObject<HTMLLIElement> }> = ({ divRef
               src={product1}
               alt="Product 1"
             />
-            <h3 className="mb-5 text-xl font-medium">Kategoriyasi</h3>
-            <p className="mb-5 text-sm md:text-base">
-              Biz ichimliklar va boshqa sohalar uchun ekologik toza va sifatli
-            </p>
+            <h3 className="mb-5 text-xl font-medium">{t('productTitle1')}</h3>
+            <p className="mb-5 text-sm md:text-base">{t('productDesc1')}</p>
             <button onClick={() => handleClickProduct(1)} className="button">
               {t('productButton')}
             </button>

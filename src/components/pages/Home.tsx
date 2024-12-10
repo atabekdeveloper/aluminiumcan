@@ -84,6 +84,7 @@ const HomePage: React.FC = () => {
     const initialPosition = calculateClosestElement();
     if (initialPosition) {
       setCurrentPosition(initialPosition);
+      console.log(initialPosition);
     }
 
     // Добавляем обработчик скролла
@@ -94,13 +95,13 @@ const HomePage: React.FC = () => {
   }, []);
 
   return (
-    <>
+    <React.StrictMode>
       {/* Красный квадрат */}
       <div
-        className="fixed z-20 hidden transition-all duration-500 ease-in-out lg:block"
+        className="fixed z-20 hidden transition-all duration-700 ease-in-out lg:block"
         style={{
-          top: currentPosition?.top,
-          left: currentPosition?.left,
+          top: currentPosition?.top || 435,
+          left: currentPosition?.left || 268,
           width: currentPosition?.width,
           rotate: currentPosition?.rotate,
         }}
@@ -117,7 +118,7 @@ const HomePage: React.FC = () => {
       <AdditionalProducts />
       <Partners />
       <Clients />
-    </>
+    </React.StrictMode>
   );
 };
 

@@ -6,9 +6,7 @@ import fon1 from 'src/assets/images/fon/fon1.svg';
 import product from 'src/assets/images/product/product.svg';
 import product3 from 'src/assets/images/product/product3.svg';
 
-import './index.css';
-
-const First: React.FC<{ divRef: React.RefObject<HTMLDivElement> }> = ({ divRef }) => {
+const First: React.FC<{ divRef: React.RefObject<HTMLDivElement> }> = React.memo(({ divRef }) => {
   const { t } = useTranslation();
   return (
     <section id="#" className="lg:h-screen">
@@ -20,9 +18,9 @@ const First: React.FC<{ divRef: React.RefObject<HTMLDivElement> }> = ({ divRef }
             backgroundImage: `url(${fon1})`, // Указывайте свой URL изображения
           }}
         >
-          <div ref={divRef}>
+          <div ref={divRef} className="relative">
             <img
-              className="max-w-[220px] w-full opacity-100 lg:opacity-0"
+              className="max-w-[220px] w-full opacity-100 lg:opacity-0 animate-rise-right"
               src={product}
               alt="Product 1"
             />
@@ -61,6 +59,6 @@ const First: React.FC<{ divRef: React.RefObject<HTMLDivElement> }> = ({ divRef }
       </div>
     </section>
   );
-};
+});
 
 export { First };
