@@ -1,12 +1,18 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 
 import fon2 from 'src/assets/images/fon/fon2.svg';
 import { useProducts } from 'src/hooks';
 
 const Products: React.FC = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
   const products = useProducts();
+  const handleClickProduct = (id: number) => {
+    localStorage.setItem('productId', `${id}`);
+    navigate('/product');
+  };
   return (
     <section id="products" className="relative">
       <div className="container">
@@ -21,10 +27,7 @@ const Products: React.FC = () => {
               />
               <h3 className="mb-5 text-xl font-medium">{product.title}</h3>
               <p className="mb-5 text-sm md:text-base">{product.desc}</p>
-              <button
-                onClick={() => localStorage.setItem('productId', `${product.id}`)}
-                className="button"
-              >
+              <button onClick={() => handleClickProduct(product.id)} className="button">
                 {t('productButton')}
               </button>
             </li>
