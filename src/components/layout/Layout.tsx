@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import {
   About,
   About2,
@@ -7,6 +8,7 @@ import {
   Connection,
   Home,
   Partners,
+  ProductItem,
   Products,
 } from '../blocks';
 import { Footer } from './Footer';
@@ -15,6 +17,7 @@ import { Header } from './Header';
 export const Layout: React.FC = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
   const mainRef = useRef<HTMLDivElement>(null);
+  const { pathname } = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -43,16 +46,22 @@ export const Layout: React.FC = () => {
 
       {/* Main content */}
       <main ref={mainRef} className="relative flex-auto">
-        <Home />
-        <About />
-        <Products />
-        <About2 />
-        <Connection />
-        <AdditionalProducts />
-        <Partners />
-        <Clients />
-        <Footer />
+        {pathname === '/product' ? (
+          <ProductItem />
+        ) : (
+          <>
+            <Home />
+            <About />
+            <Products />
+            <About2 />
+            <Connection />
+            <AdditionalProducts />
+            <Partners />
+            <Clients />
+          </>
+        )}
       </main>
+      <Footer />
     </div>
   );
 };

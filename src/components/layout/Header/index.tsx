@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { GrLanguage } from 'react-icons/gr';
 import { VscMenu } from 'react-icons/vsc';
+import { useNavigate } from 'react-router-dom';
 import logo from 'src/assets/images/logo1.svg';
 import logo3 from 'src/assets/images/logo3.svg';
 
@@ -14,6 +15,7 @@ export const Header: React.FC = () => {
   const dropdownRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const { t, i18n } = useTranslation();
+  const navigate = useNavigate();
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -36,14 +38,9 @@ export const Header: React.FC = () => {
     setIsDropdownOpen(false);
   };
 
-  const handleScrollTo = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-      });
-    }
+  const handleLink = () => {
+    setIsMenuOpen(false);
+    navigate('/');
   };
 
   // Close dropdown on outside click
@@ -84,7 +81,7 @@ export const Header: React.FC = () => {
     >
       <div className="container flex items-center justify-between py-7">
         {/* Logo */}
-        <a href="#" onClick={() => handleScrollTo('#')}>
+        <a href="#" onClick={handleLink}>
           <img
             className="transition-transform duration-500"
             src={scrolled ? logo3 : logo}
@@ -100,6 +97,7 @@ export const Header: React.FC = () => {
               <a
                 key={i}
                 href={item.link}
+                onClick={handleLink}
                 className={`px-3 py-2 text-sm font-medium transition-colors rounded hover:underline ${
                   scrolled ? 'text-white' : 'text-[#333]'
                 }`}
@@ -154,7 +152,7 @@ export const Header: React.FC = () => {
               key={i}
               href={item.link}
               className="px-5 py-3 cursor-pointer hover:bg-gray-200"
-              onClick={() => setIsMenuOpen(false)}
+              onClick={handleLink}
             >
               {item.title}
             </a>

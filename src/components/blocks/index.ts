@@ -5,4 +5,5 @@ export * from './Clients';
 export * from './Connection';
 export * from './Home';
 export * from './Partners';
+export * from './ProductItem';
 export * from './Products';
