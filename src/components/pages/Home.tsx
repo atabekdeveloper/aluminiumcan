@@ -79,7 +79,11 @@ const HomePage: React.FC = () => {
     }
   };
 
-  useEffect(() => window.scrollTo(0, 1), []);
+  useEffect(() => {
+    setTimeout(() => {
+      window.scrollTo(0, 1);
+    }, 0);
+  }, []);
 
   useEffect(() => {
     // Установка начального положения
