@@ -1,30 +1,31 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa6';
 
 import client1 from 'src/assets/images/clients/client1.png';
 import client1Banner from 'src/assets/images/clients/client1Banner.png';
 
-const clients = [
-  {
-    img: client1,
-    banner: client1Banner,
-    title: 'Malika Yunusova',
-    desc: '"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim ineros elementum tristique. Duis cursus, mi quis viverra ornare."',
-  },
-  {
-    img: client1,
-    banner: client1Banner,
-    title: 'John Smith',
-    desc: '"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim ineros elementum tristique. Duis cursus, mi quis viverra ornare."',
-  },
-];
-
 const Clients: React.FC = () => {
   const [current, setCurrent] = React.useState(0);
+  const { t } = useTranslation();
+  const clients = [
+    {
+      img: client1,
+      banner: client1Banner,
+      title: 'Malika Yunusova',
+      desc: '"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim ineros elementum tristique. Duis cursus, mi quis viverra ornare."',
+    },
+    {
+      img: client1,
+      banner: client1Banner,
+      title: 'John Smith',
+      desc: '"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim ineros elementum tristique. Duis cursus, mi quis viverra ornare."',
+    },
+  ];
   return (
     <section id="comments" className="bg-pink">
       <div className="container px-10 md:px-0">
-        <h2 className="title">Mijozlarimiz izohlari</h2>
+        <h2 className="title">{t('clientsTitle')}</h2>
         <div className="bg-white rounded-[50px] md:rounded-[180px] px-10 py-5 flex items-center gap-5 relative md:flex-row flex-col">
           <div className="flex items-center">
             <img

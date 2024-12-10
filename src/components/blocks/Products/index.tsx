@@ -7,41 +7,42 @@ import product4 from 'src/assets/images/product/product4.svg';
 import product5 from 'src/assets/images/product/product5.svg';
 import product6 from 'src/assets/images/product/product6.svg';
 
+import { useTranslation } from 'react-i18next';
 import fon2 from 'src/assets/images/fon/fon2.svg';
 
-const products = [
-  {
-    img: product2,
-    title: 'Kategoriyasi',
-    desc: 'Biz ichimliklar va boshqa sohalar uchun ekologik toza va sifatli',
-  },
-  {
-    img: product3,
-    title: 'Kategoriyasi',
-    desc: 'Biz ichimliklar va boshqa sohalar uchun ekologik toza va sifatli',
-  },
-  {
-    img: product4,
-    title: 'Kategoriyasi',
-    desc: 'Biz ichimliklar va boshqa sohalar uchun ekologik toza va sifatli',
-  },
-  {
-    img: product5,
-    title: 'Kategoriyasi',
-    desc: 'Biz ichimliklar va boshqa sohalar uchun ekologik toza va sifatli',
-  },
-  {
-    img: product6,
-    title: 'Kategoriyasi',
-    desc: 'Biz ichimliklar va boshqa sohalar uchun ekologik toza va sifatli ',
-  },
-];
-
 const Products: React.FC = () => {
+  const { t } = useTranslation();
+  const products = [
+    {
+      img: product2,
+      title: t('productTitle2'),
+      desc: t('productDesc2'),
+    },
+    {
+      img: product3,
+      title: t('productTitle3'),
+      desc: t('productDesc3'),
+    },
+    {
+      img: product4,
+      title: t('productTitle4'),
+      desc: t('productDesc4'),
+    },
+    {
+      img: product5,
+      title: t('productTitle5'),
+      desc: t('productDesc5'),
+    },
+    {
+      img: product6,
+      title: t('productTitle6'),
+      desc: t('productDesc6'),
+    },
+  ];
   return (
     <section id="products" className="relative">
       <div className="container">
-        <h1 className="title">Biz ishlab chiqargan maxsulotlar</h1>
+        <h1 className="title">{t('productsTitle')}</h1>
         <ul className="grid grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-[170px]">
           <li className="text-center text-midnight lg:text-left">
             <img
@@ -49,11 +50,9 @@ const Products: React.FC = () => {
               src={product1}
               alt="Kategoriyasi"
             />
-            <h3 className="mb-5 text-xl font-medium">Kategoriyasi</h3>
-            <p className="mb-5 text-sm md:text-base">
-              Biz ichimliklar va boshqa sohalar uchun ekologik toza va sifatli
-            </p>
-            <button className="button">Tanishish</button>
+            <h3 className="mb-5 text-xl font-medium">{t('productTitle1')}</h3>
+            <p className="mb-5 text-sm md:text-base">{t('productDesc1')}</p>
+            <button className="button">{t('productButton')}</button>
           </li>
           {products.map((product, i) => (
             <li key={i} className="text-center text-midnight lg:text-left">
@@ -64,7 +63,7 @@ const Products: React.FC = () => {
               />
               <h3 className="mb-5 text-xl font-medium">{product.title}</h3>
               <p className="mb-5 text-sm md:text-base">{product.desc}</p>
-              <button className="button">Tanishish</button>
+              <button className="button">{t('productButton')}</button>
             </li>
           ))}
         </ul>

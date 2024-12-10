@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { GrLanguage } from 'react-icons/gr';
 import { VscMenu } from 'react-icons/vsc';
 import logo from 'src/assets/images/logo1.svg';
@@ -12,6 +13,7 @@ export const Header: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
+  const { t, i18n } = useTranslation();
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -19,15 +21,16 @@ export const Header: React.FC = () => {
 
   // Navigation items with hardcoded translations
   const navItems = [
-    { title: lang === 'UZ' ? 'Biz haqimizda' : 'О нас', link: '#about' },
-    { title: lang === 'UZ' ? 'Mahsulotlarimiz' : 'Наши продукты', link: '#products' },
-    { title: lang === 'UZ' ? 'Yangiliklar' : 'Новости', link: '#news' },
-    { title: lang === 'UZ' ? 'Bizni tanlaganlar' : 'Наши клиенты', link: '#partners' },
-    { title: lang === 'UZ' ? 'Kamentlar' : 'Комментарии', link: '#comments' },
+    { title: t('navAbout'), link: '#about' },
+    { title: t('navProducts'), link: '#products' },
+    { title: t('navNews'), link: '#news' },
+    { title: t('navPartners'), link: '#partners' },
+    { title: t('navComments'), link: '#comments' },
   ];
 
   // Change language
   const handleChangeLanguage = (value: string) => {
+    i18n.changeLanguage(value);
     localStorage.setItem('lang', value);
     setLang(value);
     setIsDropdownOpen(false);

@@ -1,22 +1,23 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import fon3 from 'src/assets/images/fon/fon3.svg';
 import fon4 from 'src/assets/images/fon/fon4.svg';
 import tube from 'src/assets/images/tube/tube.png';
 import { useResponsive } from 'src/hooks';
 
-const aditionalProducts = [
-  { img: tube, title: 'Truba nomi', desc: 'Qisqacha ma’lumot' },
-  { img: tube, title: 'Truba nomi', desc: 'Qisqacha ma’lumot' },
-  { img: tube, title: 'Truba nomi', desc: 'Qisqacha ma’lumot' },
-];
-
 const AdditionalProducts: React.FC = () => {
   const { isMobile } = useResponsive(1024);
+  const { t } = useTranslation();
+  const aditionalProducts = [
+    { img: tube, title: t('additionalProductsTitle1'), desc: t('additionalProductsDesc1') },
+    { img: tube, title: t('additionalProductsTitle2'), desc: t('additionalProductsDesc2') },
+    { img: tube, title: t('additionalProductsTitle3'), desc: t('additionalProductsDesc3') },
+  ];
   return (
-    <section id="news" className="relative">
+    <section id="news" className="relative overflow-hidden">
       <div className="container">
-        <h2 className="title">Bizning qo’shimcha maxsulotlarimiz</h2>
+        <h2 className="title">{t('additionalProductsTitle')}</h2>
         <ul className="grid grid-cols-1 gap-10 px-10 md:gap-20 md:grid-cols-2 lg:grid-cols-3 lg:px-0">
           {aditionalProducts.map((el, i) => (
             <li key={i} className="bg-primary rounded-[188px] overflow-hidden pt-40 pb-16 relative">
@@ -31,7 +32,7 @@ const AdditionalProducts: React.FC = () => {
           ))}
         </ul>
       </div>
-      <h2 className="container -mt-16 -mb-10 title">Bizga ishonch bildirganlar</h2>
+      <h2 className="container -mt-16 -mb-10 title">{t('partnersTitle')}</h2>
       <img
         className="absolute bottom-0 left-0 right-0 w-full -z-10"
         src={isMobile ? fon4 : fon3}

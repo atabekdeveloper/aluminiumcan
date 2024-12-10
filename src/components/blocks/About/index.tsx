@@ -1,12 +1,14 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import about from 'src/assets/images/about/about1.png';
 import product1 from 'src/assets/images/product/product.svg';
 
 const About: React.FC = () => {
+  const { t } = useTranslation();
   return (
-    <section id="about" className="container flex">
-      <div className="flex flex-col items-center gap-10 lg:gap-20 lg:flex-row">
+    <section id="about" className="pt-10">
+      <div className="container flex flex-col items-center gap-10 lg:gap-20 lg:flex-row">
         <div className="relative w-full lg:w-1/2">
           <img className="w-full" src={about} alt="About" />
           <img
@@ -16,20 +18,12 @@ const About: React.FC = () => {
           />
         </div>
         <div className="w-full text-center lg:w-1/2 lg:text-left">
-          <h1 className="mb-4 title">Biz haqimizda</h1>
+          <h1 className="mb-4 title">{t('aboutTitle')}</h1>
           <p className="flex flex-col gap-4 mb-4 text-midnight">
-            <span>
-              Biz ichimliklar va boshqa sohalar uchun ekologik toza va sifatli qadoqlash
-              yechimlarini taqdim etishga intiluvchi alyuminiy butilkalar ishlab chiqaruvchi
-              yetakchi kompaniyamiz.
-            </span>
-            <span>
-              Biz innovatsion yondashuv, qat’iy sifat nazorati va barqaror ishlab chiqarish
-              amaliyotlarimiz bilan faxrlanamiz. Siz bilan hamkorlik qilish va biznesingiz
-              muvaffaqiyatiga hissa qo‘shishdan mamnunmiz.
-            </span>
+            <span>{t('aboutDesc1')}</span>
+            <span>{t('aboutDesc2')}</span>
           </p>
-          <button className="button">Biz bilan bog’lanish</button>
+          <button className="button">{t('aboutButton')}</button>
         </div>
       </div>
     </section>
